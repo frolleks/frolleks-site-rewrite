@@ -14,21 +14,45 @@ import pfp from "../assets/pfp.png";
 <Layout>
   <div class="grid gap-y-4 justify-center">
     <Card>
-      <div class="flex items-start justify-between">
+      <div class="flex items-start justify-between gap-x-2">
         <div class="flex flex-col">
           <h1 class="font-mono text-xl font-semibold">hi, i'm frolleks</h1>
-          <p class="font-mono bg-white text-black w-fit px-2 font-bold">
-            about me!
-          </p>
-          <p class="font-mono">i play video games, code</p>
+          <div class="mt-2">
+            <p class="font-mono bg-white text-black w-fit px-2 font-bold mb-1">
+              about me!
+            </p>
+            <p class="font-mono">
+              i play video games, code, and read books sometimes. i'm currently
+              more into classics, hit me up if you got any recommendations.
+            </p>
+            <p
+              class="font-mono bg-white text-black w-fit px-2 font-bold mb-1 mt-2"
+            >
+              contact me!
+            </p>
+            <div class="flex gap-2">
+              <div
+                class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
+              >
+                <Icon name="mdi:twitter" />
+                <p>@frolleks</p>
+              </div>
+              <div
+                class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
+              >
+                <Icon name="ic:baseline-discord" />
+                <p>@frolleks</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="flex flex-col">
           <Image
             src={pfp}
             alt="frolleks' profile picture"
-            width={128}
-            height={128}
+            width={384}
+            height={384}
             class="shrink-0"
           />
           <p class="font-mono italic">{"<3"} angel devil!</p>
