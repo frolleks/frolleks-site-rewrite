@@ -1,0 +1,32 @@
+---
+import Card from "../components/Card.astro";
+
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: "/", label: "home" },
+  { href: "/blog", label: "blog" },
+  { href: "/projects", label: "projects" },
+];
+---
+
+<div class="grid justify-center py-4">
+  <Card>
+    <nav class="flex items-center gap-3">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "nav-link font-mono hover:underline",
+              currentPath === link.href &&
+                "bg-white text-black w-fit px-2 font-bold",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </Card>
+</div>
