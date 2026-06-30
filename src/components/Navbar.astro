@@ -1,13 +1,18 @@
 ---
 import Card from "../components/Card.astro";
 
-const currentPath = Astro.url.pathname;
-
 const links = [
   { href: "/", label: "home" },
   { href: "/blog", label: "blog" },
   { href: "/projects", label: "projects" },
 ];
+
+const normalizePath = (path: string) => {
+  if (path === "/") return "/";
+  return path.replace(/\/+$/, "");
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
 ---
 
 <div class="grid justify-center py-4">
