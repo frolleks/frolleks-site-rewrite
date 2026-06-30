@@ -7,8 +7,10 @@ import Layout from "../layouts/Layout.astro";
 
 import pfp from "../assets/pfp.png";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const socials = [
+  { icon: "mdi:twitter", label: "@frolleks" },
+  { icon: "ic:baseline-discord", label: "@frolleks" },
+];
 ---
 
 <Layout>
@@ -31,18 +33,14 @@ import pfp from "../assets/pfp.png";
               contact me!
             </p>
             <div class="flex gap-2">
-              <div
-                class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
-              >
-                <Icon name="mdi:twitter" />
-                <p>@frolleks</p>
-              </div>
-              <div
-                class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
-              >
-                <Icon name="ic:baseline-discord" />
-                <p>@frolleks</p>
-              </div>
+              {
+                socials.map((social) => (
+                  <div class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+                    <Icon name={social.icon} />
+                    <p>{social.label}</p>
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
