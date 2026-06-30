@@ -15,6 +15,7 @@ export default defineConfig({
 
   integrations: [icon()],
   adapter: cloudflare({
-    imageService: "compile"
+    imageService: "compile",
+    prerenderEnvironment: "node"
   })
 });
