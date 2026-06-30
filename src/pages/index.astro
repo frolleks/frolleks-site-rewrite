@@ -1,11 +1,61 @@
 ---
-import Welcome from "../components/Welcome.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
+
+import pfp from "../assets/pfp.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <Welcome />
+  <div class="grid gap-y-4 container mx-auto py-8 justify-center">
+    <Card>
+      <div class="flex items-start justify-between">
+        <div class="flex flex-col">
+          <h1 class="font-mono text-xl font-semibold">hi, i'm frolleks</h1>
+          <p class="font-mono bg-white text-black w-fit px-2 font-bold">
+            about me!
+          </p>
+          <p class="font-mono">i play video games, code</p>
+        </div>
+
+        <div class="flex flex-col">
+          <Image
+            src={pfp}
+            alt="frolleks' profile picture"
+            width={128}
+            height={128}
+            class="shrink-0"
+          />
+          <p class="font-mono italic">{"<3"} angel devil!</p>
+        </div>
+      </div>
+    </Card>
+
+    <a href="/projects">
+      <Card>
+        <p class="font-mono bg-white text-black w-fit px-2 font-bold">
+          <div class="flex items-center justify-between">
+            <p class="font-mono bg-white text-black w-fit px-2 font-bold">
+              projects
+            </p>
+            <Icon name="mdi:arrow-right" />
+          </div>
+        </p>
+      </Card>
+    </a>
+
+    <a href="/blog">
+      <Card
+        ><div class="flex items-center justify-between">
+          <p class="font-mono bg-white text-black w-fit px-2 font-bold">blog</p>
+          <Icon name="mdi:arrow-right" />
+        </div>
+      </Card>
+    </a>
+  </div>
 </Layout>
