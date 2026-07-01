@@ -1,0 +1,12 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { icon, label } = Astro.props;
+---
+
+<div
+  class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
+>
+  <Icon name={icon} />
+  <p>{label}</p>
+</div>

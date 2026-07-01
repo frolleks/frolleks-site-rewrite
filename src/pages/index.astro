@@ -6,6 +6,8 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
 import pfp from "../assets/pfp.png";
+import ContactInfo from "../components/ContactInfo.astro";
+import HighlightText from "../components/HighlightText.astro";
 
 const socials = [
   { icon: "mdi:twitter", label: "@frolleks" },
@@ -19,28 +21,26 @@ const socials = [
       <div class="flex items-start justify-between gap-x-2">
         <div class="flex flex-col">
           <h1 class="font-mono text-xl font-semibold">hi, i'm frolleks</h1>
-          <div class="mt-2">
-            <p class="font-mono bg-white text-black w-fit px-2 font-bold mb-1">
-              about me!
-            </p>
-            <p class="font-mono">
-              i play video games, code, and read books sometimes. i'm currently
-              more into classics, hit me up if you got any recommendations.
-            </p>
-            <p
-              class="font-mono bg-white text-black w-fit px-2 font-bold mb-1 mt-2"
-            >
-              contact me!
-            </p>
-            <div class="flex gap-2">
-              {
-                socials.map((social) => (
-                  <div class="flex items-center font-mono border border-white w-fit px-2 font-bold mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-                    <Icon name={social.icon} />
-                    <p>{social.label}</p>
-                  </div>
-                ))
-              }
+
+          <div class="mt-2 grid gap-y-2">
+            <div class="grid gap-y-1">
+              <HighlightText>about me!</HighlightText>
+              <p class="font-mono">
+                i play video games, code, and read books sometimes. i'm
+                currently more into classics, hit me up if you got any
+                recommendations.
+              </p>
+            </div>
+
+            <div class="grid gap-y-1">
+              <HighlightText>contact me!</HighlightText>
+              <div class="flex gap-2">
+                {
+                  socials.map((social) => (
+                    <ContactInfo icon={social.icon} label={social.label} />
+                  ))
+                }
+              </div>
             </div>
           </div>
         </div>
@@ -60,21 +60,17 @@ const socials = [
 
     <a href="/projects">
       <Card>
-        <p class="font-mono bg-white text-black w-fit px-2 font-bold">
-          <div class="flex items-center justify-between">
-            <p class="font-mono bg-white text-black w-fit px-2 font-bold">
-              projects
-            </p>
-            <Icon name="mdi:arrow-right" />
-          </div>
-        </p>
+        <div class="flex items-center justify-between">
+          <HighlightText>projects</HighlightText>
+          <Icon name="mdi:arrow-right" />
+        </div>
       </Card>
     </a>
 
     <a href="/blog">
-      <Card
-        ><div class="flex items-center justify-between">
-          <p class="font-mono bg-white text-black w-fit px-2 font-bold">blog</p>
+      <Card>
+        <div class="flex items-center justify-between">
+          <HighlightText>blog</HighlightText>
           <Icon name="mdi:arrow-right" />
         </div>
       </Card>
