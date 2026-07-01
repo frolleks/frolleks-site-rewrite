@@ -13,17 +13,22 @@ import Navbar from "../components/Navbar.astro";
     <meta name="generator" content={Astro.generator} />
     <title>frolleks</title>
   </head>
-  <body>
-    <div class="relative h-screen overflow-hidden">
-      <div
-        class="absolute inset-0 bg-cover bg-center"
-        style={`background-image: url(${bgImage.src});`}
-      >
-      </div>
 
-      <div class="relative z-10 container mx-auto lg:max-w-3xl max-w-2xl">
-        <Navbar />
-        <slot />
+  <body
+    class="absolute inset-0 bg-center bg-repeat"
+    style={`background-image: url(${bgImage.src});`}
+  >
+    <div class="relative">
+      <div
+        class="relative z-10 container mx-auto flex h-full max-w-2xl flex-col lg:max-w-3xl"
+      >
+        <div class="shrink-0">
+          <Navbar />
+        </div>
+
+        <main>
+          <slot />
+        </main>
       </div>
     </div>
   </body>

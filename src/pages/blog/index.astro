@@ -1,7 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import Card from "../../components/Card.astro";
 import HighlightText from "../../components/HighlightText.astro";
 import Layout from "../../layouts/Layout.astro";
+
+const posts = await getCollection("blog");
 ---
 
 <Layout>
@@ -9,5 +12,16 @@ import Layout from "../../layouts/Layout.astro";
     <Card>
       <HighlightText>blog</HighlightText>
     </Card>
+    {
+      posts.map((post) => (
+        <a href={`/blog/${post.id}`}>
+          <Card>
+            <h1 class="font-semibold font-mono text-xl">{post.data.title}</h1>
+            <p class="font-mono">{post.data.description}</p>
+            <p class="font-mono">{post.data.pubDate.toLocaleDateString()}</p>
+          </Card>
+        </a>
+      ))
+    }
   </div>
 </Layout>

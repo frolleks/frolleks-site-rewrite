@@ -7,6 +7,10 @@ import icon from 'astro-icon';
 
 import cloudflare from '@astrojs/cloudflare';
 
+import { unified } from '@astrojs/markdown-remark';
+
+import { remarkReadingTime } from './remark-reading-time.mjs';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -17,5 +21,11 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: "compile",
     prerenderEnvironment: "node"
-  })
+  }),
+
+  markdown: {
+    processor: unified({
+      remarkPlugins: [remarkReadingTime],
+    }),
+  },
 });
