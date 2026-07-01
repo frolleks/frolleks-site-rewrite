@@ -24,7 +24,7 @@ const socials = [
 
           <div class="mt-2 grid gap-y-2">
             <div class="grid gap-y-1">
-              <HighlightText>about me!</HighlightText>
+              <HighlightText>about me</HighlightText>
               <p class="font-mono">
                 i play video games, code, and read books sometimes. i'm
                 currently more into classics, hit me up if you got any
@@ -33,7 +33,7 @@ const socials = [
             </div>
 
             <div class="grid gap-y-1">
-              <HighlightText>contact me!</HighlightText>
+              <HighlightText>contact me</HighlightText>
               <div class="flex gap-2">
                 {
                   socials.map((social) => (
@@ -58,20 +58,40 @@ const socials = [
       </div>
     </Card>
 
-    <a href="/projects">
+    <a href="https://github.com/frolleks">
       <Card>
-        <div class="flex items-center justify-between">
-          <HighlightText>projects</HighlightText>
-          <Icon name="mdi:arrow-right" />
+        <div class="grid gap-y-1">
+          <div class="flex items-center justify-between">
+            <HighlightText>my github</HighlightText>
+            <Icon name="mdi:arrow-right" />
+          </div>
+          <p class="font-mono">i put all of my projects there, check it out</p>
         </div>
       </Card>
     </a>
 
     <a href="/blog">
       <Card>
-        <div class="flex items-center justify-between">
-          <HighlightText>blog</HighlightText>
-          <Icon name="mdi:arrow-right" />
+        <div class="grid gap-y-1">
+          <div class="flex items-center justify-between">
+            <HighlightText>blog</HighlightText>
+            <Icon name="mdi:arrow-right" />
+          </div>
+          <p class="font-mono">when twitter is not enough for my yappings</p>
+        </div>
+      </Card>
+    </a>
+
+    <a href="https://github.com/frolleks/frolleks-site-rewrite">
+      <Card>
+        <div class="grid gap-y-1">
+          <div class="flex items-center justify-between">
+            <HighlightText>source code</HighlightText>
+            <Icon name="mdi:arrow-right" />
+          </div>
+          <p class="font-mono">
+            this site's code is fully open source, check it out too
+          </p>
         </div>
       </Card>
     </a>
