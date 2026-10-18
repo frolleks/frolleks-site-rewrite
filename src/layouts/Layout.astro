@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import bgImage from "../assets/background.jpg";
+import bgImage from "../assets/background.png";
 import Navbar from "../components/Navbar.astro";
 ---
 
@@ -14,10 +14,9 @@ import Navbar from "../components/Navbar.astro";
     <title>frolleks</title>
   </head>
 
-  <body
-    class="absolute inset-0 bg-center bg-repeat"
-    style={`background-image: url(${bgImage.src});`}
-  >
+  <body>
+    <div class="fixed inset-0 -z-10 w-full h-screen bg-cover bg-center bg-no-repeat" style={`background-image: url(${bgImage.src});`}>
+    </div>
     <div class="relative">
       <div
         class="relative z-10 container mx-auto flex h-full max-w-2xl flex-col lg:max-w-4xl"
