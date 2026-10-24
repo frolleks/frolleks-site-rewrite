@@ -36,11 +36,9 @@ const socials = [
             <div class="grid gap-y-1">
               <HighlightText>contact me</HighlightText>
               <div class="flex flex-wrap gap-x-2">
-                {
-                  socials.map((social) => (
-                    <ContactInfo icon={social.icon} label={social.label} />
-                  ))
-                }
+                {socials.map((social) => (
+                  <ContactInfo icon={social.icon} label={social.label} />
+                ))}
               </div>
             </div>
           </div>

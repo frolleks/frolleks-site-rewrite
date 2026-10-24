@@ -16,12 +16,12 @@ import Navbar from "../components/Navbar.astro";
   </head>
 
   <body>
-    <div class="fixed inset-0 -z-10 w-full h-screen bg-cover bg-center bg-no-repeat" style={`background-image: url(${bgImage.src});`}>
-    </div>
+    <div
+      class="fixed inset-0 -z-10 w-full h-screen bg-cover bg-center bg-no-repeat"
+      style={`background-image: url(${bgImage.src});`}
+    ></div>
     <div class="relative">
-      <div
-        class="relative z-10 container mx-auto flex h-full max-w-2xl flex-col lg:max-w-4xl"
-      >
+      <div class="relative z-10 container mx-auto flex h-full max-w-2xl flex-col lg:max-w-4xl">
         <div class="shrink-0">
           <Navbar />
         </div>

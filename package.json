@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types",
-    "deploy": "astro build && wrangler deploy"
+    "deploy": "astro build && wrangler deploy",
+    "fmt": "prettier . --write"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.4.2",

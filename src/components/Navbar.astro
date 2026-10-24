@@ -18,20 +18,18 @@ const currentPath = normalizePath(Astro.url.pathname);
 <div class="py-4">
   <Card>
     <nav class="flex items-center gap-3">
-      {
-        links.map((link) => (
-          <a
-            href={link.href}
-            class:list={[
-              "nav-link font-mono hover:underline",
-              currentPath === link.href &&
-                "bg-[rgba(180,206,77,1)] text-black w-fit px-2 font-bold",
-            ]}
-          >
-            {link.label}
-          </a>
-        ))
-      }
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "nav-link font-mono hover:underline",
+            currentPath === link.href &&
+              "bg-[rgba(180,206,77,1)] text-black w-fit px-2 font-bold",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
     </nav>
   </Card>
 </div>
