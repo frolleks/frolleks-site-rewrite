@@ -1,8 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
-
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-* {
-  font-family: "Fira Code", monospace;
+/* Fonts are loaded in src/layouts/Layout.astro */
+@theme {
+  --font-display: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
+}
+
+@layer base {
+  body {
+    @apply font-serif leading-relaxed antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-normal;
+  }
 }

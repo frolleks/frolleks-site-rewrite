@@ -22,9 +22,9 @@ const currentPath = normalizePath(Astro.url.pathname);
         <a
           href={link.href}
           class:list={[
-            "nav-link font-mono hover:underline",
+            "nav-link hover:underline",
             currentPath === link.href &&
-              "bg-[rgba(180,206,77,1)] text-black w-fit px-2 font-bold",
+              "bg-[rgba(180,206,77,1)] text-black w-fit px-2 font-semibold",
           ]}
         >
           {link.label}
