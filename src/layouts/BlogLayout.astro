@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
         {frontmatter.description} &middot; {frontmatter.minutesRead}
       </p>
     </Section>
-    <Section class="prose max-w-none prose-invert prose-headings:font-display prose-headings:font-normal prose-a:text-accent">
+    <Section class="prose max-w-none prose-invert [--tw-prose-invert-body:var(--color-white)] prose-headings:font-display prose-headings:font-normal prose-a:text-accent">
       <slot />
     </Section>
   </article>
