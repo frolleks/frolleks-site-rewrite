@@ -14,7 +14,7 @@
   }
 
   body {
-    @apply bg-black font-serif leading-relaxed text-white antialiased;
+    @apply bg-neutral-950 font-serif leading-relaxed text-white antialiased;
   }
 
   h1,
