@@ -42,6 +42,11 @@ const links = [
           i play video games, code, and read books sometimes. i'm currently more
           into classics, hit me up if you got any recommendations.
         </p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {socials.map((social) => (
+            <ContactInfo icon={social.icon} label={social.label} />
+          ))}
+        </div>
       </div>
 
       <figure class="hidden shrink-0 sm:block">
@@ -56,14 +61,6 @@ const links = [
           {"<3"} mitsuki!
         </figcaption>
       </figure>
-    </div>
-  </Section>
-
-  <Section title="contact me">
-    <div class="mt-4 flex flex-wrap gap-2">
-      {socials.map((social) => (
-        <ContactInfo icon={social.icon} label={social.label} />
-      ))}
     </div>
   </Section>
 
