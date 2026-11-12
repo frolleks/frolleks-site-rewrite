@@ -1,31 +1,31 @@
 ---
-import Card from "../../components/Card.astro";
+import LinkRow from "../../components/LinkRow.astro";
+import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
-import HighlightText from "../../components/HighlightText.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+  {
+    href: "https://soter.frolleks.site",
+    title: "Soter",
+    description:
+      "A Discord moderation bot that removes hate speech and spam, and times out repeat offenders.",
+  },
+  {
+    href: "https://github.com/frolleks/nutmeg",
+    title: "nutmeg",
+    description: "Run macOS Roblox on Linux.",
+  },
+];
 ---
 
 <Layout>
-  <div class="flex flex-col gap-y-4">
-    <Card>
-      <HighlightText>projects</HighlightText>
-    </Card>
-    <a href="https://soter.frolleks.site">
-      <Card>
-        <h1 class="text-2xl">Soter</h1>
-        <p class="mt-1">
-          A Discord moderation bot that removes hate speech and spam, and times
-          out repeat offenders.
-        </p>
-      </Card>
-    </a>
-    <a href="https://github.com/frolleks/nutmeg">
-      <Card>
-        <h1 class="text-2xl">nutmeg</h1>
-        <p class="mt-1">Run macOS Roblox on Linux.</p>
-      </Card>
-    </a>
-  </div>
+  <Section title="projects" level={1}>
+    <ul class="divide-y divide-accent/20">
+      {projects.map((project) => (
+        <LinkRow href={project.href} title={project.title}>
+          <p>{project.description}</p>
+        </LinkRow>
+      ))}
+    </ul>
+  </Section>
 </Layout>

@@ -1,27 +1,23 @@
 ---
 import { getCollection } from "astro:content";
-import Card from "../../components/Card.astro";
-import HighlightText from "../../components/HighlightText.astro";
+import LinkRow from "../../components/LinkRow.astro";
+import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const posts = await getCollection("blog");
 ---
 
 <Layout>
-  <div class="flex flex-col gap-y-4">
-    <Card>
-      <HighlightText>blog</HighlightText>
-    </Card>
-    {posts.map((post) => (
-      <a href={`/blog/${post.id}`}>
-        <Card>
-          <h1 class="text-2xl">{post.data.title}</h1>
-          <p class="mt-1">{post.data.description}</p>
-          <p class="mt-2 text-sm text-neutral-400">
+  <Section title="blog" level={1}>
+    <ul class="divide-y divide-accent/20">
+      {posts.map((post) => (
+        <LinkRow href={`/blog/${post.id}`} title={post.data.title}>
+          <p>{post.data.description}</p>
+          <p class="mt-2 text-sm text-neutral-500">
             {post.data.pubDate.toLocaleDateString()}
           </p>
-        </Card>
-      </a>
-    ))}
-  </div>
+        </LinkRow>
+      ))}
+    </ul>
+  </Section>
 </Layout>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  title?: string;
+  /** Heading level for the title: 1 on pages whose only heading it is. */
+  level?: 1 | 2;
+  class?: string;
+}
+
+const { title, level = 2, class: className } = Astro.props;
+const Heading = level === 1 ? "h1" : "h2";
+---
+
+<section class:list={["border-t border-accent/30 py-8", className]}>
+  {title && (
+    <Heading class="mb-2 w-fit bg-accent px-2 text-lg text-black">
+      {title}
+    </Heading>
+  )}
+  <slot />
+</section>

@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  href: string;
+  title: string;
+}
+
+const { href, title } = Astro.props;
+---
+
+<li>
+  <a href={href} class="group flex items-center justify-between gap-4 py-5">
+    <div>
+      <span class="block font-display text-2xl transition-colors group-hover:text-accent">
+        {title}
+      </span>
+      <div class="mt-1 text-neutral-300">
+        <slot />
+      </div>
+    </div>
+    <Icon
+      name="mdi:arrow-right"
+      class="size-5 shrink-0 text-accent transition-transform group-hover:translate-x-1"
+    />
+  </a>
+</li>

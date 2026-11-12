@@ -1,6 +1,4 @@
 ---
-import Card from "../components/Card.astro";
-
 const links = [
   { href: "/", label: "home" },
   { href: "/blog", label: "blog" },
@@ -15,21 +13,21 @@ const normalizePath = (path: string) => {
 const currentPath = normalizePath(Astro.url.pathname);
 ---
 
-<div class="py-4">
-  <Card>
-    <nav class="flex items-center gap-3">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            "nav-link hover:underline",
-            currentPath === link.href &&
-              "bg-[rgba(180,206,77,1)] text-black w-fit px-2 font-semibold",
-          ]}
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
-  </Card>
-</div>
+<header class="py-6">
+  <nav class="flex items-center gap-3">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        aria-current={currentPath === link.href ? "page" : undefined}
+        class:list={[
+          "px-2",
+          currentPath === link.href
+            ? "bg-accent font-semibold text-black"
+            : "hover:underline",
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>

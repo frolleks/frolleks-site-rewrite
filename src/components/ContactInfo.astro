@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 const { icon, label } = Astro.props;
 ---
 
-<div class="flex items-center text-sm border border-[rgba(180,206,77,1)] w-fit px-2 py-0.5 font-medium mb-1 mt-1 gap-x-1.5 shadow-[2px_2px_0px_0px_rgba(180,206,77,1)] hover:shadow-[4px_4px_0px_0px_rgba(180,206,77,1)]">
-  <Icon name={icon} />
+<div class="flex w-fit items-center gap-x-1.5 border border-accent/60 px-2 py-0.5 text-sm">
+  <Icon name={icon} class="text-accent" />
   <p>{label}</p>
 </div>
