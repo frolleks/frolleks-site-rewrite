@@ -7,14 +7,11 @@ interface Props {
 }
 
 const { title, level = 2, class: className } = Astro.props;
-const Heading = level === 1 ? "h1" : "h2";
 ---
 
 <section class:list={["border-t border-accent/30 py-8", className]}>
   {title && (
-    <Heading class="mb-2 w-fit bg-accent px-2 text-lg text-black">
-      {title}
-    </Heading>
+    <p class="mb-2 w-fit bg-accent px-2 font-bold text-black">{title}</p>
   )}
   <slot />
 </section>
