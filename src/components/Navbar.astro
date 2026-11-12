@@ -11,6 +11,13 @@ const normalizePath = (path: string) => {
 };
 
 const currentPath = normalizePath(Astro.url.pathname);
+
+// A link is active on its own page and on any page nested under it
+// (e.g. "blog" on /blog/some-post). Home only matches "/" exactly.
+const isActive = (href: string) =>
+  href === "/"
+    ? currentPath === "/"
+    : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
 <header class="py-6">
@@ -18,10 +25,10 @@ const currentPath = normalizePath(Astro.url.pathname);
     {links.map((link) => (
       <a
         href={link.href}
-        aria-current={currentPath === link.href ? "page" : undefined}
+        aria-current={isActive(link.href) ? "page" : undefined}
         class:list={[
           "px-2",
-          currentPath === link.href
+          isActive(link.href)
             ? "bg-accent font-semibold text-black"
             : "hover:underline",
         ]}
