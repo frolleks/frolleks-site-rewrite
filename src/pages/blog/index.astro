@@ -3,16 +3,24 @@ import { getCollection } from "astro:content";
 import LinkRow from "../../components/LinkRow.astro";
 import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
+import { renderInlineMarkdown } from "../../lib/markdown";
 
-const posts = await getCollection("blog");
+const posts = await Promise.all(
+  (await getCollection("blog")).map(async (post) => ({
+    ...post,
+    titleHtml: await renderInlineMarkdown(post.data.title),
+    descriptionHtml: await renderInlineMarkdown(post.data.description),
+  })),
+);
 ---
 
 <Layout>
   <Section title="blog" level={1}>
     <ul class="divide-y divide-accent/20">
       {posts.map((post) => (
-        <LinkRow href={`/blog/${post.id}`} title={post.data.title}>
-          <p>{post.data.description}</p>
+        <LinkRow href={`/blog/${post.id}`}>
+          <Fragment slot="title" set:html={post.titleHtml} />
+          <p set:html={post.descriptionHtml} />
           <p class="mt-2 text-sm text-neutral-500">
             {post.data.pubDate.toLocaleDateString()}
           </p>
